@@ -4,32 +4,46 @@ import User from "./pure/User";
 
 const UserList = () => {
 
-	let deafultUser1 = {
+	const deafultUser1 = {
 		name: "Arturo López Rosa",
 		isConnected: true
 	};
 
-	let defaultUser2 = {
+	const defaultUser2 = {
 		name: "Jorge Navarro Arias",
 		isConnected: false
 	};
 
-	const [usersList, setUsersNumber] = useState([deafultUser1, defaultUser2]); 
+	const [usersList, setUsersList] = useState([deafultUser1, defaultUser2]); 
 
 	// Función que genera la lista de usuarios:
 	function getUsers () {
 		
 		let users = []; 
-		let key =
-		
+				
 		usersList.forEach(element => {
-			console.log(`<User name = ${element.name} isConnected = ${element.isConnected} />`);
-			users.push(<User name= {element.name} isConnected= {element.isConnected} key= {element.name} />);
+			
+			users.push(<User name= {element.name} isConnected= {element.isConnected} key= {element.name} changeConnectionStatus= {changeConnectionStatus} />);
 			
 		});
 
 		return users;
 	}
+
+	//Función que cambia el estado de un usuario
+	function changeConnectionStatus (name) {
+
+		const usersListCopy = structuredClone(usersList);
+
+		usersListCopy.forEach((element) => {
+			if (element.name === name) {
+				element.isConnected = !element.isConnected;
+			}
+			setUsersList(usersListCopy);
+		});
+
+	}
+	
 
 	return (
 		<div>

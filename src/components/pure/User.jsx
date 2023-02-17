@@ -1,28 +1,21 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
 
-const User = ({ name, isConnected }) => {
-
-	const [connected, setConnection] = useState(isConnected);
+const User = ({ name, isConnected, changeConnectionStatus }) => {
 
 	// Devuelve el icono Bootstrap correcto on/off
 	function getConnectIcon () {
-		if (connected) {
+		if (isConnected) {
 			return "bi bi-toggle-on";
 		} else {
 			return "bi bi-toggle-off";
 		}
 	}
 
-	function changeConnectionStatus () {
-		setConnection(!connected);
-	}
-
 	return (
 		<div>
 			<p> {name} </p>
 			<div>
-				<i className= {getConnectIcon()} onClick={changeConnectionStatus}></i>
+				<i className= {getConnectIcon()} onClick={() => changeConnectionStatus(name)}></i>
 				<i className="bi bi-trash"></i>
 			</div>
 		</div>
@@ -30,8 +23,9 @@ const User = ({ name, isConnected }) => {
 };
 
 User.propTypes = {
-	name: PropTypes.string,
-	isConnected: PropTypes.bool
+	name: PropTypes.string.isRequired,
+	isConnected: PropTypes.bool.isRequired,
+	changeConnectionStatus: PropTypes.func.isRequired
 };
 
 export default User;
