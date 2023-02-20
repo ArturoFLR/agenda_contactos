@@ -1,0 +1,9 @@
+.userContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+/*# sourceMappingURL=User.module.css.map */

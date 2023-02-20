@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import styles from "./User.module.css";
 
 const User = ({ name, isConnected, changeConnectionStatus, eraseUser }) => {
 
@@ -12,7 +13,7 @@ const User = ({ name, isConnected, changeConnectionStatus, eraseUser }) => {
 	}
 
 	return (
-		<div>
+		<div className={styles.userContainer}>
 			<p> {name} </p>
 			<div>
 				<i className= {getConnectIcon()} onClick={() => changeConnectionStatus(name)}></i>

@@ -1,7 +1,7 @@
 import { PropTypes } from "prop-types";
 import { useRef } from "react";
 
-const FormCreateUser = ({addUser, isVisible, hideForm}) => {
+const FormCreateUser = ({addUser, hideForm}) => {
 
 	const inputRef = useRef(null);
 	const selectRef = useRef(null);
@@ -21,7 +21,7 @@ const FormCreateUser = ({addUser, isVisible, hideForm}) => {
 	}
 
 	return (
-		<form onSubmit={add} style= {{visibility: isVisible}}>
+		<form onSubmit={add}>
 			<fieldset>
 				<legend>Introduce Nuevo Usuario</legend>
 				<input type= "text" placeholder= "Ej: Pedro Martín Luján" ref= {inputRef} required></input>
@@ -39,7 +39,6 @@ const FormCreateUser = ({addUser, isVisible, hideForm}) => {
 
 FormCreateUser.propTypes = {
 	addUser : PropTypes.func.isRequired,
-	isVisible: PropTypes.string.isRequired,
 	hideForm: PropTypes.func.isRequired
 };
 

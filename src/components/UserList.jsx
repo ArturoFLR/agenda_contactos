@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FormCreateUser from "./forms/FormCreateUser";
 import User from "./pure/User";
+import styles from "./UserList.module.css";
 
 const UserList = () => {
 
@@ -88,19 +89,19 @@ const UserList = () => {
 	}
 	
 	return (
-		<div>
+		<div className={styles.mainContainer}>
 			<h1>Lista de Usuarios</h1>
 
-			<div>
+			<div className={styles.userContainer}>
 				{getUsers()}
 			</div>
 
-			<div>
+			<div className={styles.buttonCreateContainer}>
 				<button type='button' onClick= {showForm}>{visibility === "hidden" ? "Crear Usuario" : "Cancelar"}</button>
 			</div>
 
-			<div>
-				<FormCreateUser addUser= {addUser} isVisible= {visibility} hideForm = {showForm} />
+			<div className={ `${visibility === "hidden" ? styles.formContainerHidden : styles.formContainerShow} ${styles.formContainer}`} >
+				<FormCreateUser addUser= {addUser} hideForm = {showForm} />
 			</div>
 
 		</div>
