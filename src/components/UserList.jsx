@@ -15,6 +15,7 @@ const UserList = () => {
 	};
 
 	const [usersList, setUsersList] = useState([deafultUser1, defaultUser2]); 
+	const [visibility, setvisibility] = useState("hidden");
 
 	// Función que genera la lista de usuarios:
 	function getUsers () {
@@ -76,6 +77,16 @@ const UserList = () => {
 		setUsersList(usersListCopy);
 	}
 
+	//Función que hace aparecer el formulario de creación de usuarios
+	function showForm () {
+		if (visibility === "hidden") {
+			setvisibility("visible");
+		}else {
+			setvisibility("hidden");
+		}
+
+	}
+	
 	return (
 		<div>
 			<h1>Lista de Usuarios</h1>
@@ -85,11 +96,11 @@ const UserList = () => {
 			</div>
 
 			<div>
-				<button type='button'>Crear Usuario</button>
+				<button type='button' onClick= {showForm}>{visibility === "hidden" ? "Crear Usuario" : "Cancelar"}</button>
 			</div>
 
 			<div>
-				<FormCreateUser addUser= {addUser} />
+				<FormCreateUser addUser= {addUser} isVisible= {visibility} hideForm = {showForm} />
 			</div>
 
 		</div>
