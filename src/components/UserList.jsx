@@ -20,11 +20,16 @@ const UserList = () => {
 	function getUsers () {
 		
 		let users = []; 
-				
-		usersList.forEach(element => {
+		
+		usersList.map((element, index) => {
 			
-			users.push(<User name= {element.name} isConnected= {element.isConnected} key= {element.name} changeConnectionStatus= {changeConnectionStatus} />);
-			
+			users.push(<User 
+				name= {element.name} 
+				isConnected= {element.isConnected} 
+				key= {index} 
+				changeConnectionStatus= {changeConnectionStatus} 
+				eraseUser= {eraseUser} 	
+			/>);
 		});
 
 		return users;
@@ -33,7 +38,7 @@ const UserList = () => {
 	//Función que cambia el estado de un usuario
 	function changeConnectionStatus (name) {
 
-		const usersListCopy = structuredClone(usersList);
+		const usersListCopy = JSON.parse(JSON.stringify(usersList));
 
 		usersListCopy.forEach((element) => {
 			if (element.name === name) {
@@ -44,6 +49,32 @@ const UserList = () => {
 
 	}
 	
+	//Función que borra un usuario
+	function eraseUser (name) {
+
+		const usersListCopy = JSON.parse(JSON.stringify(usersList));
+
+		usersListCopy.map((element, index) => {
+			
+			if (element.name === name) {
+				console.log(usersListCopy);
+				usersListCopy.splice(index, 1);
+				console.log(usersListCopy);
+			}
+			
+			setUsersList(usersListCopy);
+		});
+	}
+
+	//Función que añade un usuario
+	function addUser (newUser) {
+		
+		const usersListCopy = JSON.parse(JSON.stringify(usersList));
+
+		usersListCopy.push(newUser);
+
+		setUsersList(usersListCopy);
+	}
 
 	return (
 		<div>
@@ -58,7 +89,7 @@ const UserList = () => {
 			</div>
 
 			<div>
-				<FormCreateUser />
+				<FormCreateUser addUser= {addUser} />
 			</div>
 
 		</div>

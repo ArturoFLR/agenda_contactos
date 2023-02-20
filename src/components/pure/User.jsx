@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const User = ({ name, isConnected, changeConnectionStatus }) => {
+const User = ({ name, isConnected, changeConnectionStatus, eraseUser }) => {
 
 	// Devuelve el icono Bootstrap correcto on/off
 	function getConnectIcon () {
@@ -16,7 +16,7 @@ const User = ({ name, isConnected, changeConnectionStatus }) => {
 			<p> {name} </p>
 			<div>
 				<i className= {getConnectIcon()} onClick={() => changeConnectionStatus(name)}></i>
-				<i className="bi bi-trash"></i>
+				<i className="bi bi-trash" onClick={() => eraseUser(name)}></i>
 			</div>
 		</div>
 	);
@@ -25,7 +25,8 @@ const User = ({ name, isConnected, changeConnectionStatus }) => {
 User.propTypes = {
 	name: PropTypes.string.isRequired,
 	isConnected: PropTypes.bool.isRequired,
-	changeConnectionStatus: PropTypes.func.isRequired
+	changeConnectionStatus: PropTypes.func.isRequired,
+	eraseUser: PropTypes.func.isRequired
 };
 
 export default User;
