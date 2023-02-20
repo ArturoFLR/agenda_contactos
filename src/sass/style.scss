@@ -1,4 +1,5 @@
 @import "./reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
 
 // Más reseteo de estilos
 * {
@@ -15,7 +16,8 @@ header, footer, nav, article, aside, section {
 // Estilos generales.
 
 body {
-	background-color: rgb(183, 243, 243);
+	background-color: rgb(226, 243, 243);
+	font-family: 'Roboto Condensed', sans-serif;
 }
 
 #root {

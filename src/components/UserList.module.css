@@ -28,10 +28,12 @@ h1 {
   font-size: 1rem;
   font-weight: bold;
 }
+.buttonCreateContainer button:hover {
+  cursor: pointer;
+}
 
 .formContainer {
   width: 100%;
-  background-color: rgb(194, 235, 216);
   padding: 1rem;
   margin-top: 1rem;
 }

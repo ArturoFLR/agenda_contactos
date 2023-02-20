@@ -1,5 +1,6 @@
 import { PropTypes } from "prop-types";
 import { useRef } from "react";
+import styles from "./FormCreateUser.module.css";
 
 const FormCreateUser = ({addUser, hideForm}) => {
 
@@ -21,16 +22,22 @@ const FormCreateUser = ({addUser, hideForm}) => {
 	}
 
 	return (
-		<form onSubmit={add}>
-			<fieldset>
+		<form onSubmit={add} className={styles.formCreateUser}>
+			<fieldset className= {styles.fieldsetCreateUser}>
 				<legend>Introduce Nuevo Usuario</legend>
-				<input type= "text" placeholder= "Ej: Pedro Martín Luján" ref= {inputRef} required></input>
-				<label htmlFor= "setStatus">Estado</label>
-				<select id="setStatus" name="setConnection" ref= {selectRef}>
-					<option value= "true">Conectado</option>
-					<option value= "false">Desconectado</option>
-				</select>
-				<button type="submit">Confirmar</button>
+
+				<div className= {styles.newUserData}>
+					<label htmlFor= "userName">Nombre</label>
+					<input type= "text" placeholder= "Ej: Pedro Martín Luján" id= "userName" ref= {inputRef} required></input>
+					<label htmlFor= "setStatus">Estado</label>
+					<select id="setStatus" name="setConnection" ref= {selectRef}>
+						<option value= "true">Conectado</option>
+						<option value= "false">Desconectado</option>
+					</select>
+				</div>
+
+				<button type="submit" className= {styles.btnConfirm}>Confirmar</button>
+
 			</fieldset>
 		</form>
 	);

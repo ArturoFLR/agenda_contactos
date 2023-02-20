@@ -1,0 +1,44 @@
+
+.formCreateUser {
+  font-weight: bold;
+  font-size: 1.2rem;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.fieldsetCreateUser {
+  border: 2px solid black;
+  text-align: center;
+}
+
+.newUserData {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  font-weight: 400;
+}
+.newUserData label {
+  margin: 1rem;
+}
+.newUserData input {
+  padding: 0.5rem;
+  border: 2px solid black;
+  font-family: "Roboto Condensed", sans-serif;
+}
+.newUserData select {
+  padding: 0.5rem;
+  border: 2px solid black;
+}
+
+.btnConfirm {
+  width: 20%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 2px solid black;
+  font-weight: bold;
+}
+.btnConfirm:hover {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=FormCreateUser.module.css.map */
