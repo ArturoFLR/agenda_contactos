@@ -1,8 +1,6 @@
-
 .formCreateUser {
   font-weight: bold;
   font-size: 1.2rem;
-  font-family: "Roboto Condensed", sans-serif;
 }
 
 .fieldsetCreateUser {
@@ -23,7 +21,6 @@
 .newUserData input {
   padding: 0.5rem;
   border: 2px solid black;
-  font-family: "Roboto Condensed", sans-serif;
 }
 .newUserData select {
   padding: 0.5rem;
